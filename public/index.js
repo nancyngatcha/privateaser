@@ -156,7 +156,23 @@ function bookingPrice(){
   }
 }
 
+function groupDiscount(){
+  for(var i=0; i<events.length; i++){
+    if(events[i].persons >=10 && events[i].persons <20){
+      events[i].price =events[i].price*0.9
+    }
+    if(events[i].persons >=20 && events[i].persons <60){
+      events[i].price =events[i].price*0.7
+    }
+    if(events[i].persons >60){
+      events[i].price =events[i].price*0.5
+    }
+  }
+
+}
+
 bookingPrice();
+groupDiscount();
 
 console.log(bars);
 console.log(events);
