@@ -171,8 +171,18 @@ function groupDiscount(){
 
 }
 
+function commission(){
+  for(var i=0; i<events.length; i++){
+    var commission = events[i].price*0.3
+    events[i].commission.insurance = commission/2
+    events[i].commission.treasury = events[i].persons
+    events[i].commission.privateaser = commission -commission/2- events[i].persons
+  }
+}
+
 bookingPrice();
 groupDiscount();
+commission();
 
 console.log(bars);
 console.log(events);
