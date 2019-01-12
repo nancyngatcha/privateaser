@@ -180,7 +180,18 @@ function commission(){
   }
 }
 
+function deductible(){
+  for(var i=0; i<events.length; i++){
+    if(events[i].deductible == true){
+      events[i].price += events[i].persons
+    }
+  }
+}
+
+
+
 bookingPrice();
+deductible();
 groupDiscount();
 commission();
 
