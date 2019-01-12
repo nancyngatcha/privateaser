@@ -164,7 +164,7 @@ function groupDiscount(){
     if(events[i].persons >=20 && events[i].persons <60){
       events[i].price =events[i].price*0.7
     }
-    if(events[i].persons >60){
+    if(events[i].persons >=60){
       events[i].price =events[i].price*0.5
     }
   }
@@ -184,9 +184,12 @@ function deductible(){
   for(var i=0; i<events.length; i++){
     if(events[i].deductible == true){
       events[i].price += events[i].persons
+      events[i].commission.privateaser += events[i].persons
     }
   }
 }
+
+
 
 
 
