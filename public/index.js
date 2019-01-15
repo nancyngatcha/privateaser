@@ -189,7 +189,20 @@ function deductible(){
   }
 }
 
+function payActors(){
+  for(var i=0; i<actors.length; i++){
+    for (var j =0; i<events.length; j++){
+        actors[i].payment[0].amount = events[j].price
+        var commission = events[j].commission.insurance + events[j].commission.treasury + events[j].commission.privateaser
+        actors[i].payment[1].amount = events[j].price - commission
+        actors[i].payment[2].amount = events[j].commission.insurance
+        actors[i].payment[3].amount = events[j].commission.treasury
+        actors[i].payment[4].amount = events[j].commission.privateaser
 
+      
+    }
+  }
+}
 
 
 
@@ -197,6 +210,7 @@ bookingPrice();
 deductible();
 groupDiscount();
 commission();
+payActors();
 
 console.log(bars);
 console.log(events);
